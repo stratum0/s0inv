@@ -20,4 +20,4 @@ To run the project, run:
 python3 main.py
 ```
 
-You can now visit `http://127.0.0.1:5000/inv/`.
+You can now visit `http://127.0.0.1:5000/`.
