@@ -35,7 +35,7 @@ if not os.path.exists(database_path):
 
 @app.route("/")
 def app_index():
-    return "Hello World!"
+    return redirect('/'+NAMESPACE+'/')
 
 @app.route("/<int:item_id>")
 def app_item(item_id):
