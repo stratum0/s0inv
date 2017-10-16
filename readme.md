@@ -9,7 +9,7 @@ python3 -m venv env/
 sudo apt-get install python3-dev
 source env/bin/activate
 pip3 install -r requirements.txt
-mkdir app/tmp
+mkdir tmp
 ```
 
 Running the application
@@ -17,7 +17,7 @@ Running the application
 
 To run the project, run:
 ```
-python3 main.py
+./run.sh
 ```
 
 You can now visit `http://127.0.0.1:5000/`.
