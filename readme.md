@@ -5,7 +5,7 @@ To install the project, run:
 python3 -m venv env/
 sudo apt-get install python3-dev
 pip3 install -r requirements.txt
-mkdir tmp
+mkdir app/tmp
 ```
 
 To run the project, run:
