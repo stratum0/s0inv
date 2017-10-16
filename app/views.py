@@ -1,12 +1,12 @@
 from flask import Flask, redirect, request, send_from_directory
-from app import app, inventory_labels,db
+from app import app, inventory_labels,db, NAMESPACE
 from flask_security import Security, login_required, login_user, logout_user, current_user
 
 
 @app.route("/")
 @login_required
 def app_index():
-    return redirect("/admin")
+    return redirect("/"+NAMESPACE+"/")
 
 @app.route("/<int:item_id>")
 @login_required
