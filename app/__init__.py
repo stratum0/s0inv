@@ -10,6 +10,9 @@ app.config['DATABASE_FILE'] = 's0inv.sqlite'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + app.config['DATABASE_FILE']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECURITY_REGISTERABLE'] = True
+app.config['SECURITY_SEND_REGISTER_EMAIL'] = False
+# Please use your own salt for productive use!
+app.config['SECURITY_PASSWORD_SALT'] = "eph4OoGh Oochiel4"
 
 db = SQLAlchemy(app)
 
