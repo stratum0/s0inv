@@ -23,7 +23,7 @@ from app import models,views, modelviews, forms
 # Setup Flask-Security
 from flask_security import Security, SQLAlchemyUserDatastore, current_user
 user_datastore = SQLAlchemyUserDatastore(db, models.User, models.Role)
-security = Security(app, user_datastore, register_form=forms.ExtendedRegisterForm)
+security = Security(app, user_datastore, register_form=forms.ExtendedRegisterForm, login_form=forms.LoginForm)
 modelviews.__init__()
 
 def build_sample_db():
