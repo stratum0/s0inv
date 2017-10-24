@@ -56,6 +56,20 @@ class DetailView(BaseView):
         else:
             return False
 
+class UserView(ModelView):
+    can_create = False
+    can_edit = False
+    can_delete = False
+    column_exclude_list = ['password','confirmed_at','active', ]
+    # column_searchable_list = ['name', 'email']
+    def is_accessible(self):
+        if current_user.is_authenticated:
+            return True
+        else:
+            return False
+
+
 def __init__():
     admin.add_view(ItemView(models.Item, db.session))
     admin.add_view(ProjectView(models.Project, db.session))
+    admin.add_view(UserView(models.User, db.session))

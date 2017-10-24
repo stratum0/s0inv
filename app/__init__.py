@@ -10,6 +10,7 @@ app.config['DATABASE_FILE'] = 's0inv.sqlite'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + app.config['DATABASE_FILE']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECURITY_REGISTERABLE'] = True
+app.config['SECURITY_USER_IDENTITY_ATTRIBUTES'] = ['username']
 app.config['SECURITY_SEND_REGISTER_EMAIL'] = False
 # Please use your own salt for productive use!
 app.config['SECURITY_PASSWORD_SALT'] = "eph4OoGh Oochiel4"
@@ -18,11 +19,11 @@ db = SQLAlchemy(app)
 from flask_admin import Admin
 admin = Admin(app, name='s0inv', template_mode='bootstrap3', url='/'+NAMESPACE)
 
-from app import models,views, modelviews
+from app import models,views, modelviews, forms
 # Setup Flask-Security
 from flask_security import Security, SQLAlchemyUserDatastore, current_user
 user_datastore = SQLAlchemyUserDatastore(db, models.User, models.Role)
-security = Security(app, user_datastore)
+security = Security(app, user_datastore, register_form=forms.ExtendedRegisterForm, login_form=forms.LoginForm)
 modelviews.__init__()
 
 def build_sample_db():
